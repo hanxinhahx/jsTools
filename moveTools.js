@@ -5,24 +5,24 @@ function move(obj,dec,target,speed){
         if (target<0&&speed>0) {
             speed=-speed;
         }
-        if(dec=="left"||dec=="right"){
+        if(dec=="x"){
              newValue=obj.offsetLeft+speed;
         }
-        else if (dec=="top"||dec=="bottom") {
-            newValue=obj.offsetTop;
+        else if (dec=="y") {
+            newValue=obj.offsetTop+speed;
         }
         if(newValue>target) newValue=target;
-        if (dec=="left"||dec=="right") {
+        if (dec=="x") {
             obj.style.left=newValue+"px";
         }
-        else if(dec=="top"||dec=="bottom"){
+        else if(dec=="y"){
             obj.style.top=newValue+"px";
         }
         if(obj.offsetLeft==target||obj.offsetTop==target){
             clearInterval(timr1);
         }
     },100);
-  function moveFun(obj,dec,target,speed){
-      move(obj,dec,target,speed);
-  };
+};
+function moveFun(obj,dec,target,speed){
+    move(obj,dec,target,speed);
 };
